@@ -184,7 +184,8 @@ public class JavaCodeFormatterFacade extends CodeFormatterFacade {
 		} catch (BadLocationException e) {
 			throw new RuntimeException(e);
 		}
-		return doc.get();
+		// return doc.get();
+		return java.util.regex.Pattern.compile("^([\\s]+\\*)([\\s]+)$", java.util.regex.Pattern.MULTILINE).matcher(doc.get()).replaceAll("$1");
 
 	}
 
